@@ -25,7 +25,8 @@ jobs:
 
       - name: Generate bindings
         run: |
-          bindgen include/wrapper.h \
+          mise exec bindgen-cli -- bindgen \
+            include/wrapper.h \
             --output src/bindings.rs \
             --allowlist-function 'CF(Dictionary|Array|String|Data|Number|Boolean|Release|Retain).*' \
             --allowlist-function 'Sec(Item|Key|Certificate|Identity).*' \

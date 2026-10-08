@@ -23,10 +23,13 @@ jobs:
       - name: Setup mise
         uses: jdx/mise-action@v4
 
+      - name: SDK Path
+        id: sdk
+        run: echo "path=$(xcrun --sdk macosx --show-sdk-path)" >> $GITHUB_OUTPUT
+
       - name: Generate bindings
         run: |
-          SDK="$(xcrun --sdk macosx --show-sdk-path)"
-          mise exec bindgen-cli -- bindgen \
+          mise x -- bindgen \
             include/wrapper.h \
             --output src/bindings.rs \
             --allowlist-function 'CF(Dictionary|Array|String|Data|Number|Boolean|Release|Retain).*' \
@@ -36,7 +39,7 @@ jobs:
             --allowlist-var 'kCFTypeDictionary(Key|Value)CallBacks' \
             --allowlist-type 'Sec.*' \
             -- \
-            -isysroot "$SDK"
+            -isysroot "${{ steps.sdk.outputs.path }}"
 
       - name: Stage generated code
         run: git add --force .

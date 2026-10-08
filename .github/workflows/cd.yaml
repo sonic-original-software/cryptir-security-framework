@@ -26,4 +26,4 @@ jobs:
       - name: Pop release
         uses: katastroma/skeuotheke/.github/actions/pop-release@v0
         with:
-          ecosystem: ""
+          ecosystem: "--missing-ok"

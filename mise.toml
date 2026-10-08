@@ -1,0 +1,4 @@
+[tools]
+cargo-binstall = "latest"
+"cargo:bindgen-cli" = "latest"
+"cargo:cocogitto" = "latest"

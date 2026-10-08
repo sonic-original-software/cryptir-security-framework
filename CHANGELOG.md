@@ -2,6 +2,12 @@
 All notable changes to this project will be documented in this file. See [conventional commits](https://www.conventionalcommits.org/) for commit guidelines.
 
 - - -
+## 0.2.3 - 2026-10-08
+#### Bug Fixes
+- still fixing binding steps - (422a43c) - Nathan Blair
+
+- - -
+
 ## 0.2.2 - 2026-10-08
 #### Bug Fixes
 - CD must run on macOS - (4da8306) - Nathan Blair

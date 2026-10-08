@@ -11,7 +11,7 @@ on:
 
 jobs:
   gen:
-    runs-on: ubuntu-latest
+    runs-on: macos-latest
     permissions:
       contents: write
     steps:
@@ -25,6 +25,7 @@ jobs:
 
       - name: Generate bindings
         run: |
+          SDK="$(xcrun --sdk macosx --show-sdk-path)"
           mise exec bindgen-cli -- bindgen \
             include/wrapper.h \
             --output src/bindings.rs \

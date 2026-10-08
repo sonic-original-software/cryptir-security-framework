@@ -2,6 +2,12 @@
 All notable changes to this project will be documented in this file. See [conventional commits](https://www.conventionalcommits.org/) for commit guidelines.
 
 - - -
+## 0.1.2 - 2026-10-08
+#### Bug Fixes
+- still fixing pop-release - (96b5d7f) - Nathan Blair
+
+- - -
+
 ## 0.1.1 - 2026-10-08
 #### Bug Fixes
 - trying to fix pop-release - (7c6ce0a) - Nathan Blair

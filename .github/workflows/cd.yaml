@@ -23,7 +23,45 @@ jobs:
       - name: Setup mise
         uses: jdx/mise-action@v4
 
-      - name: Pop release
-        uses: katastroma/skeuotheke/.github/actions/pop-release@v0
-        with:
-          ecosystem: "crate"
+      - name: Generate bindings
+        run: |
+          bindgen include/wrapper.h \
+            --output src/bindings.rs \
+            --allowlist-function 'CF(Dictionary|Array|String|Data|Number|Boolean|Release|Retain).*' \
+            --allowlist-function 'Sec(Item|Key|Certificate|Identity).*' \
+            --allowlist-var 'kSec.*' \
+            --allowlist-var 'kCFBoolean(True|False)' \
+            --allowlist-var 'kCFTypeDictionary(Key|Value)CallBacks' \
+            --allowlist-type 'Sec.*' \
+            -- \
+            -isysroot "$SDK"
+
+      - name: Stage generated code
+        run: git add --force .
+
+      - name: Create tree from ecosystem directory
+        id: tree
+        run: |
+          TREE=$(git write-tree --prefix=crate/)
+          echo "TREE=${TREE}" >> $GITHUB_OUTPUT
+
+      - name: Configure git
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+      - name: Create orphan commit
+        id: commit
+        run: |
+          COMMIT=$(git commit-tree ${{ steps.tree.outputs.TREE }} -m "chore: generate code")
+          echo "COMMIT=${COMMIT}" >> $GITHUB_OUTPUT
+
+      - name: Create release tag
+        run: git tag v${{ github.ref_name }} ${{ steps.commit.outputs.COMMIT }}
+
+      - name: Push gen commit
+        run: git push --force origin ${{ steps.commit.outputs.COMMIT }}:refs/heads/gen
+
+      - name: Push release tag
+        shell: bash
+        run: git push origin v${{ github.ref_name }}

@@ -2,6 +2,12 @@
 All notable changes to this project will be documented in this file. See [conventional commits](https://www.conventionalcommits.org/) for commit guidelines.
 
 - - -
+## 0.1.4 - 2026-10-08
+#### Bug Fixes
+- actually include the crate - (87d182e) - Nathan Blair
+
+- - -
+
 ## 0.1.3 - 2026-10-08
 #### Bug Fixes
 - nest inside a crate folder - (b67e30d) - Nathan Blair

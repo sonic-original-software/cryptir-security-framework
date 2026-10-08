@@ -14,6 +14,8 @@ jobs:
     runs-on: macos-latest
     permissions:
       contents: write
+    env:
+      PREFIX: crate
     steps:
       - name: Checkout
         uses: actions/checkout@v7
@@ -32,8 +34,8 @@ jobs:
       - name: Generate bindings
         run: |
           bindgen \
-            include/wrapper.h \
-            --output src/bindings.rs \
+            ${{ env.PREFIX }}/include/wrapper.h \
+            --output ${{ env.PREFIX }}/src/bindings.rs \
             --allowlist-function 'CF(Dictionary|Array|String|Data|Number|Boolean|Release|Retain).*' \
             --allowlist-function 'Sec(Item|Key|Certificate|Identity).*' \
             --allowlist-var 'kSec.*' \
@@ -49,7 +51,7 @@ jobs:
       - name: Create tree from ecosystem directory
         id: tree
         run: |
-          TREE=$(git write-tree --prefix=crate/)
+          TREE=$(git write-tree --prefix=${{ env.PREFIX }}/)
           echo "TREE=${TREE}" >> $GITHUB_OUTPUT
 
       - name: Configure git

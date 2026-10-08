@@ -21,7 +21,9 @@ jobs:
           ref: ${{ github.ref_name }}
 
       - name: Setup mise
-        uses: jdx/mise-action@v4
+        uses: jdx/mise-action@v5
+        with:
+          cache_save_post: true
 
       - name: SDK Path
         id: sdk
@@ -29,7 +31,7 @@ jobs:
 
       - name: Generate bindings
         run: |
-          mise x -- bindgen \
+          bindgen \
             include/wrapper.h \
             --output src/bindings.rs \
             --allowlist-function 'CF(Dictionary|Array|String|Data|Number|Boolean|Release|Retain).*' \

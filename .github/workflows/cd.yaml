@@ -24,8 +24,6 @@ jobs:
 
       - name: Setup mise
         uses: jdx/mise-action@v5
-        with:
-          cache_save_post: true
 
       - name: SDK Path
         id: sdk

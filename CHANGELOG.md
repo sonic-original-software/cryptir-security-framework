@@ -2,6 +2,12 @@
 All notable changes to this project will be documented in this file. See [conventional commits](https://www.conventionalcommits.org/) for commit guidelines.
 
 - - -
+## 0.2.5 - 2026-10-08
+#### Bug Fixes
+- Yeah THIS WILL BE THE ONE - (c2c85cf) - Nathan Blair
+
+- - -
+
 ## 0.2.4 - 2026-10-08
 #### Bug Fixes
 - still trying to fix bindings - (56baf09) - Nathan Blair

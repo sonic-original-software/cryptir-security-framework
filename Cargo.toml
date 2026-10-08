@@ -1,0 +1,6 @@
+[package]
+name = "security-framework"
+edition = "2024"
+license = "MPL-2.0"
+
+[dependencies]

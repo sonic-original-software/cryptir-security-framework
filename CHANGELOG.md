@@ -2,6 +2,14 @@
 All notable changes to this project will be documented in this file. See [conventional commits](https://www.conventionalcommits.org/) for commit guidelines.
 
 - - -
+## 0.4.0 - 2026-10-09
+#### Features
+- add SecImportExport - (2628e9a) - Nathan Blair
+#### Miscellaneous Chores
+- (**cd**) add generation script - (5a0d18c) - Nathan Blair
+
+- - -
+
 ## 0.3.0 - 2026-10-09
 #### Features
 - use core-foundation-sys - (d156d8b) - Nathan Blair

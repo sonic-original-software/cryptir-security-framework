@@ -3,3 +3,9 @@
 #![allow(non_snake_case)]
 
 include!("bindings.rs");
+
+#[link(name = "CoreFoundation", kind = "framework")]
+unsafe extern "C" {}
+
+#[link(name = "Security", kind = "framework")]
+unsafe extern "C" {}

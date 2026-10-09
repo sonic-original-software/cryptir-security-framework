@@ -2,6 +2,12 @@
 All notable changes to this project will be documented in this file. See [conventional commits](https://www.conventionalcommits.org/) for commit guidelines.
 
 - - -
+## 0.3.0 - 2026-10-09
+#### Features
+- use core-foundation-sys - (d156d8b) - Nathan Blair
+
+- - -
+
 ## 0.2.6 - 2026-10-09
 #### Bug Fixes
 - add linker parameters - (77d718d) - Nathan Blair

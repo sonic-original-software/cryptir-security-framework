@@ -2,6 +2,14 @@
 All notable changes to this project will be documented in this file. See [conventional commits](https://www.conventionalcommits.org/) for commit guidelines.
 
 - - -
+## 0.2.6 - 2026-10-09
+#### Bug Fixes
+- add linker parameters - (77d718d) - Nathan Blair
+#### Continuous Integration
+- mise doesn't cache rust binaries properly - (9cab324) - Nathan Blair
+
+- - -
+
 ## 0.2.5 - 2026-10-08
 #### Bug Fixes
 - Yeah THIS WILL BE THE ONE - (c2c85cf) - Nathan Blair
